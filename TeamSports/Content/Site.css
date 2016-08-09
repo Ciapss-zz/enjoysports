@@ -1,8 +1,4 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
-}
-
+﻿
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
@@ -21,4 +17,40 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+
+#map {
+    width: 450px;
+    height: 450px;
+}
+
+.admin-dropdown {
+    padding: 15px 15px;
+    display: block;
+    cursor: pointer;
+}
+
+.admin-dropdown {
+    color: #999999;
+}
+
+.admin-dropdown:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.open .admin-dropdown, .open .admin-dropdown:hover {
+    color: #222222;
+    text-decoration: none;
+}
+
+.nav .dropdown span.caret {
+    border-top-color: #999999;
+    border-bottom-color: #999999;
+}
+
+.nav .dropdown.open span.caret, .nav .dropdown span.caret:hover {
+    border-top-color: #222222;
+    border-bottom-color: #222222;
 }

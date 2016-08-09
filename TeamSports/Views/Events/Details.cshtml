@@ -9,61 +9,71 @@
 <div>
     <h4>Event</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Event.Level.Name)
-        </dt>
+    <div class="col-lg-6">
+        <dl class="dl-horizontal">
+            @Html.HiddenFor(model => model.Event.GeoLat, htmlAttributes: new { @id = "GeoLat" })
+            @Html.HiddenFor(model => model.Event.GeoLng, htmlAttributes: new { @id = "GeoLng" })
+            <dt>
+                @Html.DisplayNameFor(model => model.Event.Level.Name)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Event.Level.Name)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Event.Level.Name)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Event.Sport.Name)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Event.Sport.Name)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Event.Sport.Name)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Event.Sport.Name)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Event.Description)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Event.Description)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Event.Description)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Event.Description)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Event.City.Name)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Event.City.Name)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Event.City.Name)
-        </dd>
-        <dd>
-            @Html.DisplayFor(model => model.Event.AvailableSlots)
-        </dd>
-        <dd>
-            @Html.DisplayFor(model => model.Event.MaxSlots)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Event.City.Name)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Event.AvailableSlots)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Event.AvailableSlots)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Event.MaxSlots)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Event.MaxSlots)
+            </dd>
 
-        @foreach (var item in Model.Event.Users)
-        {
-           <p>@item.User.UserName</p>
-        }
-
-        @*<dt>
-           @Html.DisplayNameFor(model => model.Users.ToList())
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Users.ToList())
-        </dd>*@
-
-    </dl>
+            @foreach (var item in Model.Event.Users)
+            {
+               <p>@item.User.UserName</p>
+            }
+        </dl>
+    </div>
+    <div class="col-lg-6">
+        <div id="map"></div>
+    </div>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Event.ID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+}
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWvt7VexVLI3rF_q8gfQf-oetKVa9BsjQ&callback=initMap"
+        async defer></script>

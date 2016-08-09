@@ -17,12 +17,16 @@ namespace TeamSports.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Events
-        public ActionResult Index()
+        public ActionResult Index(string message)
         {
             var events = db.Events
                 .Include(a => a.Level)
                 .Include(b => b.Sport)
                 .Include(c => c.User);
+            if (!string.IsNullOrEmpty(message))
+            {
+                ViewBag.message = message;
+            }
 
             return View(events.ToList());
         }
@@ -54,6 +58,10 @@ namespace TeamSports.Controllers
             ViewBag.LevelId = new SelectList(db.Levels, "Id", "Name");
             ViewBag.SportID = new SelectList(db.Sports, "Id", "name");
             ViewBag.CityID = new SelectList(db.Cities, "ID", "Name");
+
+            List<City> cities = db.Cities.ToList();
+
+            ViewBag.CitiesGeo = cities;
             return View();
         }
 
@@ -62,7 +70,7 @@ namespace TeamSports.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Description,Place,CreatorID,SportID,LevelId,CityID,MaxSlots,AvailableSlots,CurrentSlots")] Event @event)
+        public ActionResult Create([Bind(Include = "ID,Description,Place,CreatorID,SportID,LevelId,CityID,MaxSlots,AvailableSlots,CurrentSlots,GeoLat,GeoLng")] Event @event)
         {
             if (ModelState.IsValid)
             {
@@ -103,6 +111,10 @@ namespace TeamSports.Controllers
             ViewBag.LevelId = new SelectList(db.Levels, "Id", "Name", @event.LevelID);
             ViewBag.SportID = new SelectList(db.Sports, "Id", "name", @event.SportID);
             ViewBag.CityID = new SelectList(db.Cities, "ID", "Name", @event.CityID);
+
+            List<City> cities = db.Cities.ToList();
+
+            ViewBag.CitiesGeo = cities;
             return View(@event);
         }
 
@@ -111,7 +123,7 @@ namespace TeamSports.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Description,Place,CreatorID,SportID,LevelId,CityID,MaxSlots,AvailableSlots,CurrentSlots")] Event @event)
+        public ActionResult Edit([Bind(Include = "ID,Description,Place,Owner,SportID,LevelId,CityID,MaxSlots,AvailableSlots,CurrentSlots,GeoLat,GeoLng")] Event @event)
         {
             if (ModelState.IsValid)
             {
@@ -170,10 +182,10 @@ namespace TeamSports.Controllers
 
                 db.SaveChanges();
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { message = "Added" });
             }
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", new { message = "Added" });
         }
 
         protected override void Dispose(bool disposing)

@@ -21,11 +21,22 @@ namespace TeamSports
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
+                      "~/Scripts/respond.js",
+                      "~/Scripts/gmap.js"));
+            bundles.Add(new ScriptBundle("~/bundles/ace").Include(
+                        "~/Scripts/ace.min.js",
+                        "~/Scripts/ace-extra.min.js",
+                        "~/Scripts/ace-elements.min.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/ace.min.css",
+                      "~/Content/ace-skins.min.css",
+                      "~/Content/ace-rtl.min.css",
+                      "~/Content/font-awesome.min.css",
+                      "~/Content/fonts.googleapis.com.css"));
+
         }
     }
 }

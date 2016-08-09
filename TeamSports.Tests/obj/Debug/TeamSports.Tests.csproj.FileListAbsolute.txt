@@ -54,3 +54,17 @@ C:\Projekty\ASP\TeamSports\TeamSports.Tests\bin\Debug\Microsoft.Owin.Host.System
 C:\Projekty\ASP\TeamSports\TeamSports.Tests\obj\Debug\TeamSports.Tests.csprojResolveAssemblyReference.cache
 C:\Projekty\ASP\TeamSports\TeamSports.Tests\obj\Debug\TeamSports.Tests.dll
 C:\Projekty\ASP\TeamSports\TeamSports.Tests\obj\Debug\TeamSports.Tests.pdb
+C:\Projekty\ASP\TeamSports\TeamSports.Tests\bin\Debug\roslyn\csc.exe.config
+C:\Projekty\ASP\TeamSports\TeamSports.Tests\bin\Debug\roslyn\csc.rsp
+C:\Projekty\ASP\TeamSports\TeamSports.Tests\bin\Debug\roslyn\csi.exe
+C:\Projekty\ASP\TeamSports\TeamSports.Tests\bin\Debug\roslyn\csi.rsp
+C:\Projekty\ASP\TeamSports\TeamSports.Tests\bin\Debug\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Projekty\ASP\TeamSports\TeamSports.Tests\bin\Debug\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Projekty\ASP\TeamSports\TeamSports.Tests\bin\Debug\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Projekty\ASP\TeamSports\TeamSports.Tests\bin\Debug\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Projekty\ASP\TeamSports\TeamSports.Tests\bin\Debug\roslyn\System.AppContext.dll
+C:\Projekty\ASP\TeamSports\TeamSports.Tests\bin\Debug\roslyn\System.Diagnostics.StackTrace.dll
+C:\Projekty\ASP\TeamSports\TeamSports.Tests\bin\Debug\roslyn\System.IO.FileSystem.dll
+C:\Projekty\ASP\TeamSports\TeamSports.Tests\bin\Debug\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Projekty\ASP\TeamSports\TeamSports.Tests\bin\Debug\roslyn\vbc.exe.config
+C:\Projekty\ASP\TeamSports\TeamSports.Tests\bin\Debug\roslyn\vbc.rsp

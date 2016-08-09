@@ -16,6 +16,8 @@ namespace TeamSports.Models
         [Display(Name = "Available slots")]
         public int AvailableSlots { get; set; }
         public int CurrentSlots { get; set; }
+        public string GeoLat { get; set; }
+        public string GeoLng { get; set; }
 
         [Display(Name ="City")]
         public Guid CityID { get; set; }

@@ -11,6 +11,8 @@ namespace TeamSports.Models
         public Guid ID { get; set; }
         [Display(Name = "City")]
         public string Name { get; set; }
+        public string GeoLat { get; set; }
+        public string GeoLng { get; set; }
 
         public virtual ICollection<Event> Events { get; set; }
     }
