@@ -23,6 +23,10 @@ namespace TeamSports
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js",
                       "~/Scripts/gmap.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/gmap").Include(
+                      "~/Scripts/gmap.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/ace").Include(
                         "~/Scripts/ace.min.js",
                         "~/Scripts/ace-extra.min.js",
@@ -31,6 +35,7 @@ namespace TeamSports
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css",
+                      "~/Content/events.css",
                       "~/Content/ace.min.css",
                       "~/Content/ace-skins.min.css",
                       "~/Content/ace-rtl.min.css",

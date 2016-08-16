@@ -291,6 +291,16 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\events.css" />
+    <Content Include="Content\events.min.css">
+      <DependentUpon>events.css</DependentUpon>
+    </Content>
+    <Content Include="Content\less\events.css">
+      <DependentUpon>events.less</DependentUpon>
+    </Content>
+    <Content Include="Content\less\events.min.css">
+      <DependentUpon>events.css</DependentUpon>
+    </Content>
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\fonts.googleapis.com.css" />
     <Content Include="favicon.ico" />
@@ -313,15 +323,19 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\less\events.less" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
     <None Include="Properties\PublishProfiles\EnjoySports - Web Deploy.pubxml" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\gmap.js" />
-    <None Include="Scripts\jquery-3.1.0.intellisense.js" />
-    <Content Include="Scripts\jquery-3.1.0.js" />
-    <Content Include="Scripts\jquery-3.1.0.min.js" />
-    <Content Include="Scripts\jquery-3.1.0.slim.js" />
-    <Content Include="Scripts\jquery-3.1.0.slim.min.js" />
+    <None Include="Scripts\jquery-2.2.0.intellisense.js" />
+    <Content Include="Scripts\jquery-2.2.0.js" />
+    <Content Include="Scripts\jquery-2.2.0.min.js" />
+    <Content Include="Scripts\jquery-2.2.0.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -387,13 +401,10 @@
     <Content Include="Views\Cities\Details.cshtml" />
     <Content Include="Views\Cities\Edit.cshtml" />
     <Content Include="Views\Cities\Index.cshtml" />
-    <Content Include="Scripts\jquery-3.1.0.slim.min.map" />
-    <Content Include="Scripts\jquery-3.1.0.min.map" />
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Scripts\ace\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -483,7 +494,9 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\BuildWebCompiler.1.11.319\build\BuildWebCompiler.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\BuildWebCompiler.1.11.319\build\BuildWebCompiler.targets'))" />
   </Target>
+  <Import Project="..\packages\BuildWebCompiler.1.11.319\build\BuildWebCompiler.targets" Condition="Exists('..\packages\BuildWebCompiler.1.11.319\build\BuildWebCompiler.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

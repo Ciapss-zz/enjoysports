@@ -25,32 +25,9 @@ textarea {
     height: 450px;
 }
 
-.admin-dropdown {
-    padding: 15px 15px;
-    display: block;
-    cursor: pointer;
+@media (min-width: 768px) {
+    .navbar-right {
+        margin-right: -5px;
+    }
 }
 
-.admin-dropdown {
-    color: #999999;
-}
-
-.admin-dropdown:hover {
-    color: #ffffff;
-    text-decoration: none;
-}
-
-.open .admin-dropdown, .open .admin-dropdown:hover {
-    color: #222222;
-    text-decoration: none;
-}
-
-.nav .dropdown span.caret {
-    border-top-color: #999999;
-    border-bottom-color: #999999;
-}
-
-.nav .dropdown.open span.caret, .nav .dropdown span.caret:hover {
-    border-top-color: #222222;
-    border-bottom-color: #222222;
-}
