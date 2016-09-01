@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <sitemanifest>
-  <DbDacFx path="C:\Projekty\ASP\TeamSports\TeamSports\obj\Release\AutoScripts\DefaultConnection_IncrementalSchemaOnly.dacpac" dacpacAction="Deploy" />
   <IisApp path="C:\Projekty\ASP\TeamSports\TeamSports\obj\Release\Package\PackageTmp" />
   <setAcl path="C:\Projekty\ASP\TeamSports\TeamSports\obj\Release\Package\PackageTmp" setAclResourceType="Directory" />
   <setAcl path="C:\Projekty\ASP\TeamSports\TeamSports\obj\Release\Package\PackageTmp" setAclUser="anonymousAuthenticationUser" setAclResourceType="Directory" />

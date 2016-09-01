@@ -43,14 +43,10 @@
             <ul class="nav nav-list">
             @if (User.Identity.IsAuthenticated)
             {
-                <li>@Html.ActionLink("My events", "Index", "Cities")</li>
-                <li>@Html.ActionLink("Search events", "Index", "Cities")</li>
-                if (User.IsInRole("Admin"))
-                {
+                <li>@Html.ActionLink("Events", "Index", "Events")</li>
                 <li>@Html.ActionLink("Sports", "Index", "Sports")</li>
                 <li>@Html.ActionLink("Levels", "Index", "Levels")</li>
                 <li>@Html.ActionLink("Cities", "Index", "Cities")</li>
-                }
             }
             </ul><!-- /.nav-list -->
         </div>

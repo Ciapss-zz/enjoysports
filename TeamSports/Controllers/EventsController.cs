@@ -37,15 +37,6 @@ namespace TeamSports.Controllers
             var events = db.Events.Find(id);
             var participants = db.UserEvents.Where(p => p.EventID == id).Select(p => p.User.UserName);
 
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
-            //Event @event = db.Events.Find(id);
-            //if (@event == null)
-            //{
-            //    return HttpNotFound();
-            //}
             EventsUserViewModel UsersEvents = new EventsUserViewModel();
             UsersEvents.Event = events;
             UsersEvents.Username = participants.ToList();
@@ -182,10 +173,34 @@ namespace TeamSports.Controllers
 
                 db.SaveChanges();
 
-                return RedirectToAction("Index", new { message = "Added" });
+                return RedirectToAction("Details/" + id);
             }
 
-            return RedirectToAction("Index", new { message = "Added" });
+            return RedirectToAction("Details/" + id);
+        }
+
+        public ActionResult Leave(UserEvent UserEvent, Guid id)
+        {
+            string CurrentUser = User.Identity.GetUserId();
+            int isOwner = db.Events.Where(o => o.Owner == CurrentUser).Where(o => o.ID == id).Count();
+            int isRegistered = db.UserEvents.Where(r => r.UserID == CurrentUser).Where(r => r.EventID == id).Count();
+            UserEvent = db.UserEvents.Where(i => i.EventID == id).Where(u => u.UserID == CurrentUser).First();
+
+            Event Event = db.Events.Find(id);
+
+
+
+            if (isRegistered == 1 && isOwner < 1)
+            {
+                db.UserEvents.Remove(UserEvent);
+
+                Event.AvailableSlots = Event.AvailableSlots + 1;
+                Event.CurrentSlots = Event.CurrentSlots - 1;
+
+                db.SaveChanges();
+            }
+
+            return RedirectToAction("Details/" + id);
         }
 
         protected override void Dispose(bool disposing)

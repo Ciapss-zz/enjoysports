@@ -1,15 +1,16 @@
-﻿@model TeamSports.ViewModels.EventsUserViewModel
+﻿@using Microsoft.AspNet.Identity
+@model TeamSports.ViewModels.EventsUserViewModel
 
 @{
     ViewBag.Title = "Details";
+    bool alreadyJoined = true;
 }
 
-<h2>Details</h2>
+<h2>Details of event</h2>
 
 <div>
-    <h4>Event</h4>
     <hr />
-    <div class="col-lg-6">
+    <div class="col-lg-4">
         <dl class="dl-horizontal">
             @Html.HiddenFor(model => model.Event.GeoLat, htmlAttributes: new { @id = "GeoLat" })
             @Html.HiddenFor(model => model.Event.GeoLng, htmlAttributes: new { @id = "GeoLng" })
@@ -56,12 +57,33 @@
             <dd>
                 @Html.DisplayFor(model => model.Event.MaxSlots)
             </dd>
-
-            @foreach (var item in Model.Event.Users)
-            {
-               <p>@item.User.UserName</p>
-            }
         </dl>
+        <p><strong>Participants:</strong></p>
+        @foreach (var item in Model.Event.Users)
+        {
+            <p>@item.User.UserName</p>
+        }
+    </div>
+    <div class="event col-lg-2">
+        @foreach (var item in Model.Event.Users)
+        {
+            if (item.User.Id == User.Identity.GetUserId())
+            {
+                alreadyJoined = false;
+            }
+        }
+
+        @if (Model.Event.Owner != User.Identity.GetUserId())
+        {
+            if (alreadyJoined)
+            {
+                @Html.ActionLink("Join", "Join", new { id = Model.Event.ID }, new { @class = "btn-join" })
+            }
+            else
+            {
+                @Html.ActionLink("Leave", "Leave", new { id = Model.Event.ID }, new { @class = "btn-leave" })
+            }
+        }
     </div>
     <div class="col-lg-6">
         <div id="map"></div>

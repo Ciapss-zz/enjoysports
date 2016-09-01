@@ -5,10 +5,10 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2 class="events-title">Events</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+
 </p>
 @foreach (var item in Model)
 {
@@ -39,6 +39,14 @@
                         <span class="event--label">@Html.DisplayNameFor(model => model.AvailableSlots)</span>
                         <span>@Html.DisplayFor(modelItem => item.AvailableSlots) / @Html.DisplayFor(modelItem => item.MaxSlots)</span>
                     </div>
+                    <div class="event--field col-lg-6">
+                        <span class="event--label">@Html.DisplayNameFor(model => model.EventDate)</span>
+                        <span>@Html.DisplayFor(modelItem => item.EventDate)</span>
+                    </div>
+                    <div class="event--field col-lg-6">
+                        <span class="event--label">@Html.DisplayNameFor(model => model.EventTime)</span>
+                        <span>@Html.DisplayFor(modelItem => item.EventTime)</span>
+                    </div>
                     <div class="event--field col-lg-12">
                         <span class="event--label">@Html.DisplayNameFor(model => model.Description)</span>
                         <span>@Html.DisplayFor(modelItem => item.Description)</span>
@@ -49,18 +57,12 @@
                         @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "btn-details" })
                     </div>
                     @if (User.Identity.GetUserId() == item.Owner)
-                {
+                    {
                         <div class="col-xs-4 col-lg-12">
                             @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn-edit" })
                         </div>
                         <div class="col-xs-4 col-lg-12">
                             @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn-delete" })
-                        </div>
-                    }
-                    @if (User.Identity.GetUserId() != item.Owner)
-                {
-                        <div class="col-xs-4 col-lg-12">
-                            @Html.ActionLink("Join", "Join", new { id = item.ID }, new { @class = "btn-join" })
                         </div>
                     }
                 </div>

@@ -18,6 +18,14 @@ namespace TeamSports.Models
         public int CurrentSlots { get; set; }
         public string GeoLat { get; set; }
         public string GeoLng { get; set; }
+        [Display(Name = "Date")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTime EventDate { get; set; }
+        [Display(Name = "Hour")]
+        [DataType(DataType.Time)]
+        [DisplayFormat(DataFormatString = "{0:HH-mm}", ApplyFormatInEditMode = true)]
+        public string EventTime { get; set; }
 
         [Display(Name ="City")]
         public Guid CityID { get; set; }

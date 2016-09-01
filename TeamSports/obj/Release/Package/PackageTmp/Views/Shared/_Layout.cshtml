@@ -1,44 +1,84 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>EnjoySports</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Team Sports", "Index", "Events", new { area = "" }, new { @class = "navbar-brand" })
+
+<body class="no-skin">
+    <div id="navbar" class="navbar navbar-default ace-save-state">
+        <div class="navbar-container ace-save-state" id="navbar-container">
+            <button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler" data-target="#sidebar">
+                <span class="sr-only">Toggle sidebar</span>
+
+                <span class="icon-bar"></span>
+
+                <span class="icon-bar"></span>
+
+                <span class="icon-bar"></span>
+            </button>
+
+            <div class="navbar-header pull-left">
+                @Html.ActionLink("EnjoySports", "Index", "Events", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Sports", "Index", "Sports")</li>
-                    <li>@Html.ActionLink("Levels", "Index", "Levels")</li>
-                    <li>@Html.ActionLink("Cities", "Index", "Cities")</li>
+
+            <div class="navbar-buttons navbar-header pull-right" role="navigation">
+                <ul class="nav ace-nav">
+                    <li>
+                        @Html.Partial("_LoginPartial")
+                    </li>
+
                 </ul>
-                @Html.Partial("_LoginPartial")
+            </div>
+        </div><!-- /.navbar-container -->
+    </div>
+
+    <div class="main-container ace-save-state" id="main-container">
+        <div id="sidebar" class="sidebar responsive ace-save-state">
+            <ul class="nav nav-list">
+            @if (User.Identity.IsAuthenticated)
+            {
+                <li>@Html.ActionLink("Events", "Index", "Events")</li>
+                <li>@Html.ActionLink("Sports", "Index", "Sports")</li>
+                <li>@Html.ActionLink("Levels", "Index", "Levels")</li>
+                <li>@Html.ActionLink("Cities", "Index", "Cities")</li>
+            }
+            </ul><!-- /.nav-list -->
+        </div>
+
+        <div class="main-content">
+            <div class="main-content-inner">
+                <div class="page-content">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <!-- PAGE CONTENT BEGINS -->
+                            @RenderBody()
+                            <!-- PAGE CONTENT ENDS -->
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </div><!-- /.page-content -->
+            </div>
+        </div><!-- /.main-content -->
+
+        <div class="footer">
+            <div class="footer-inner">
+                <div class="footer-content">
+                    <span class="bigger-120">
+                        <span class="blue bolder">Maciej Wisniewski</span>
+                        &copy; 2016
+                    </span>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
-
+    </div><!-- /.main-container -->
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/ace")
     @RenderSection("scripts", required: false)
 </body>
 </html>

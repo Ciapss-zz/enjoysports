@@ -4,60 +4,85 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
-
+<h2>Creating new event</h2>
+@foreach (var item in ViewBag.CitiesGeo)
+{
+    <div id="@item.ID" data-lng="@item.GeoLng" data-lat="@item.GeoLat"></div>
+}
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-    
+    @Html.HiddenFor(model => model.GeoLat, htmlAttributes: new { @id = "GeoLat" })
+    @Html.HiddenFor(model => model.GeoLng, htmlAttributes: new { @id = "GeoLng" })
+
+
     <div class="form-horizontal">
-        <h4>Event</h4>
         <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+        <div class="col-lg-6">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.CityID, "City", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("CityID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.CityID, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.CityID, "City", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("CityID", null, htmlAttributes: new { @class = "form-control", @data_lat = "test" })
+                    @Html.ValidationMessageFor(model => model.CityID, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.SportID, "Sport", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("SportID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.SportID, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.SportID, "Sport", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("SportID", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.SportID, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.LevelID, "Level", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("LevelId", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.LevelID, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.LevelID, "Level", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("LevelId", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.LevelID, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.MaxSlots, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.MaxSlots, "Max participants", new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.MaxSlots, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.EventDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.EventDate, new { htmlAttributes = new { @class = "form-control", placeholder = "Employee Date Of Birth"} })
+                    @Html.ValidationMessageFor(model => model.EventDate, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.EventTime, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.EventTime, new { htmlAttributes = new { @class = "form-control", placeholder = "Employee Date Of Birth" } })
+                    @Html.ValidationMessageFor(model => model.EventTime, "", new { @class = "text-danger" })
+                </div>
+            </div>   
+            <div class="form-group">
+                @Html.LabelFor(model => model.MaxSlots, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.MaxSlots, "Max participants", new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.MaxSlots, "", new { @class = "text-danger" })
+                </div>
+            </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+            @*@Html.HiddenFor(model => model, htmlAttributes: new { @id = "GeoLng" })*@
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
             </div>
+        </div>
+        <div class="col-lg-6">
+            <div id="map"></div>
         </div>
     </div>
 }
@@ -68,4 +93,8 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap") 
+    @Scripts.Render("~/bundles/gmap") 
 }
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWvt7VexVLI3rF_q8gfQf-oetKVa9BsjQ&callback=initMap"
+        async defer></script>

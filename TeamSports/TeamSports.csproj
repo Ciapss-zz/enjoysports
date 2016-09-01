@@ -206,69 +206,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201608030849093_InitialCreate.cs" />
-    <Compile Include="Migrations\201608030849093_InitialCreate.Designer.cs">
-      <DependentUpon>201608030849093_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201609011216087_initial.cs" />
+    <Compile Include="Migrations\201609011216087_initial.Designer.cs">
+      <DependentUpon>201609011216087_initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201608030854037_Init.cs" />
-    <Compile Include="Migrations\201608030854037_Init.Designer.cs">
-      <DependentUpon>201608030854037_Init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201608030920386_CreatorID_as_string.cs" />
-    <Compile Include="Migrations\201608030920386_CreatorID_as_string.Designer.cs">
-      <DependentUpon>201608030920386_CreatorID_as_string.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201608031354035_UserList.cs" />
-    <Compile Include="Migrations\201608031354035_UserList.Designer.cs">
-      <DependentUpon>201608031354035_UserList.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201608032008205_change-to-UserID.cs" />
-    <Compile Include="Migrations\201608032008205_change-to-UserID.Designer.cs">
-      <DependentUpon>201608032008205_change-to-UserID.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201608032023259_change_list_to_collections.cs" />
-    <Compile Include="Migrations\201608032023259_change_list_to_collections.Designer.cs">
-      <DependentUpon>201608032023259_change_list_to_collections.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201608032026377_add_foreign_key_to_user.cs" />
-    <Compile Include="Migrations\201608032026377_add_foreign_key_to_user.Designer.cs">
-      <DependentUpon>201608032026377_add_foreign_key_to_user.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201608032121215_join_to_events.cs" />
-    <Compile Include="Migrations\201608032121215_join_to_events.Designer.cs">
-      <DependentUpon>201608032121215_join_to_events.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201608032135249_add_key_to_usersevents.cs" />
-    <Compile Include="Migrations\201608032135249_add_key_to_usersevents.Designer.cs">
-      <DependentUpon>201608032135249_add_key_to_usersevents.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201608040712482_usersevents_clear.cs" />
-    <Compile Include="Migrations\201608040712482_usersevents_clear.Designer.cs">
-      <DependentUpon>201608040712482_usersevents_clear.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201608040746245_new_user_event.cs" />
-    <Compile Include="Migrations\201608040746245_new_user_event.Designer.cs">
-      <DependentUpon>201608040746245_new_user_event.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201608041515423_user_events_again.cs" />
-    <Compile Include="Migrations\201608041515423_user_events_again.Designer.cs">
-      <DependentUpon>201608041515423_user_events_again.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201608041545099_userid_to_owner.cs" />
-    <Compile Include="Migrations\201608041545099_userid_to_owner.Designer.cs">
-      <DependentUpon>201608041545099_userid_to_owner.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201608042139434_add_cities.cs" />
-    <Compile Include="Migrations\201608042139434_add_cities.Designer.cs">
-      <DependentUpon>201608042139434_add_cities.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201608081636550_geo_locations.cs" />
-    <Compile Include="Migrations\201608081636550_geo_locations.Designer.cs">
-      <DependentUpon>201608081636550_geo_locations.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201608081656171_city_geolocations.cs" />
-    <Compile Include="Migrations\201608081656171_city_geolocations.Designer.cs">
-      <DependentUpon>201608081656171_city_geolocations.cs</DependentUpon>
+    <Compile Include="Migrations\201609011238364_seed.cs" />
+    <Compile Include="Migrations\201609011238364_seed.Designer.cs">
+      <DependentUpon>201609011238364_seed.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -411,53 +355,11 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201608030849093_InitialCreate.resx">
-      <DependentUpon>201608030849093_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201609011216087_initial.resx">
+      <DependentUpon>201609011216087_initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608030854037_Init.resx">
-      <DependentUpon>201608030854037_Init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608030920386_CreatorID_as_string.resx">
-      <DependentUpon>201608030920386_CreatorID_as_string.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608031354035_UserList.resx">
-      <DependentUpon>201608031354035_UserList.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608032008205_change-to-UserID.resx">
-      <DependentUpon>201608032008205_change-to-UserID.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608032023259_change_list_to_collections.resx">
-      <DependentUpon>201608032023259_change_list_to_collections.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608032026377_add_foreign_key_to_user.resx">
-      <DependentUpon>201608032026377_add_foreign_key_to_user.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608032121215_join_to_events.resx">
-      <DependentUpon>201608032121215_join_to_events.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608032135249_add_key_to_usersevents.resx">
-      <DependentUpon>201608032135249_add_key_to_usersevents.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608040712482_usersevents_clear.resx">
-      <DependentUpon>201608040712482_usersevents_clear.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608040746245_new_user_event.resx">
-      <DependentUpon>201608040746245_new_user_event.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608041515423_user_events_again.resx">
-      <DependentUpon>201608041515423_user_events_again.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608041545099_userid_to_owner.resx">
-      <DependentUpon>201608041545099_userid_to_owner.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608042139434_add_cities.resx">
-      <DependentUpon>201608042139434_add_cities.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608081636550_geo_locations.resx">
-      <DependentUpon>201608081636550_geo_locations.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608081656171_city_geolocations.resx">
-      <DependentUpon>201608081656171_city_geolocations.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201609011238364_seed.resx">
+      <DependentUpon>201609011238364_seed.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -4,11 +4,13 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
+<div class="col-xs-12 section-header">
+    <span>Cities</span>
+    @Html.ActionLink("Add new city", "Create", "Cities", new { @class = "btn btn-default pull-right" })
+</div>
+
 <table class="table">
     <tr>
         <th>

@@ -4,7 +4,7 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2>Creating new event</h2>
 @foreach (var item in ViewBag.CitiesGeo)
 {
     <div id="@item.ID" data-lng="@item.GeoLng" data-lat="@item.GeoLat"></div>
@@ -18,7 +18,6 @@
 
 
     <div class="form-horizontal">
-        <h4>Event</h4>
         <hr />
         <div class="col-lg-6">
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -53,6 +52,20 @@
                     @Html.ValidationMessageFor(model => model.LevelID, "", new { @class = "text-danger" })
                 </div>
             </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.EventDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.EventDate, new { htmlAttributes = new { @class = "form-control", placeholder = "Employee Date Of Birth"} })
+                    @Html.ValidationMessageFor(model => model.EventDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.EventTime, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.EventTime, new { htmlAttributes = new { @class = "form-control", placeholder = "Employee Date Of Birth" } })
+                    @Html.ValidationMessageFor(model => model.EventTime, "", new { @class = "text-danger" })
+                </div>
+            </div>   
             <div class="form-group">
                 @Html.LabelFor(model => model.MaxSlots, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
