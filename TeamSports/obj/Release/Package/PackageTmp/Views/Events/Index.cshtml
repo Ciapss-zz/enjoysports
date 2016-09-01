@@ -3,8 +3,8 @@
 
 @{
     ViewBag.Title = "Index";
+    var alreadyJoined = true;
 }
-
 <h2 class="events-title">Events</h2>
 
 <p>
@@ -52,7 +52,7 @@
                         <span>@Html.DisplayFor(modelItem => item.Description)</span>
                     </div>
                 </div>
-                <div class="col-xs-12 col-lg-3">
+                <div class="col-xs-12 col-lg-3 event--btnColumn">
                     <div class="col-xs-4 col-lg-12">
                         @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "btn-details" })
                     </div>
@@ -64,6 +64,32 @@
                         <div class="col-xs-4 col-lg-12">
                             @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn-delete" })
                         </div>
+                    }
+                    else
+                    {
+                        foreach (var user in item.Users)
+                        {
+                            if (user.UserID.ToString() == User.Identity.GetUserId())
+                            {
+                                alreadyJoined = false;
+                            }
+                        }
+
+                        if (item.Owner != User.Identity.GetUserId())
+                        {
+                            if (alreadyJoined)
+                            {
+                                <div class="col-xs-12">
+                                    @Html.ActionLink("Join", "Join", "Events", new { id = item.ID }, new { @class = "btn-join" })
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="col-xs-12">
+                                    @Html.ActionLink("Leave", "Leave", "Events", new { id = item.ID }, new { @class = "btn-leave" })
+                                </div>
+                            }
+                        }
                     }
                 </div>
             </div>

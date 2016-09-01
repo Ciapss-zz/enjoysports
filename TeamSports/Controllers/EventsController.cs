@@ -46,11 +46,11 @@ namespace TeamSports.Controllers
         // GET: Events/Create
         public ActionResult Create()
         {
-            ViewBag.LevelId = new SelectList(db.Levels, "Id", "Name");
-            ViewBag.SportID = new SelectList(db.Sports, "Id", "name");
-            ViewBag.CityID = new SelectList(db.Cities, "ID", "Name");
+            ViewBag.LevelId = new SelectList(db.Levels.OrderBy(i => i.Name), "Id", "Name");
+            ViewBag.SportID = new SelectList(db.Sports.OrderBy(i => i.Name), "Id", "name");
+            ViewBag.CityID = new SelectList(db.Cities.OrderBy(i => i.Name), "ID", "Name");
 
-            List<City> cities = db.Cities.ToList();
+            List<City> cities = db.Cities.OrderBy(i => i.Name).ToList();
 
             ViewBag.CitiesGeo = cities;
             return View();
@@ -61,7 +61,7 @@ namespace TeamSports.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Description,Place,CreatorID,SportID,LevelId,CityID,MaxSlots,AvailableSlots,CurrentSlots,GeoLat,GeoLng")] Event @event)
+        public ActionResult Create([Bind(Include = "ID,Description,Place,CreatorID,SportID,LevelId,CityID,MaxSlots,AvailableSlots,CurrentSlots,GeoLat,GeoLng,EventDate,EventTime")] Event @event)
         {
             if (ModelState.IsValid)
             {
@@ -80,6 +80,10 @@ namespace TeamSports.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
+            List<City> cities = db.Cities.ToList();
+
+            ViewBag.CitiesGeo = cities;
 
             ViewBag.LevelId = new SelectList(db.Levels, "Id", "Name", @event.LevelID);
             ViewBag.SportID = new SelectList(db.Sports, "Id", "name", @event.SportID);

@@ -97,3 +97,5 @@ C:\Projekty\ASP\TeamSports\TeamSports\bin\roslyn\vbc.exe.config
 C:\Projekty\ASP\TeamSports\TeamSports\bin\roslyn\vbc.rsp
 C:\Projekty\ASP\TeamSports\TeamSports\obj\Release\TeamSports.Migrations.initial.resources
 C:\Projekty\ASP\TeamSports\TeamSports\obj\Release\TeamSports.Migrations.seed.resources
+C:\Projekty\ASP\TeamSports\TeamSports\obj\Release\TeamSports.Migrations.datepicker_update.resources
+C:\Projekty\ASP\TeamSports\TeamSports\obj\Release\TeamSports.Migrations.datepicker_update_string.resources

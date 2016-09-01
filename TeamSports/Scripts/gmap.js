@@ -7,7 +7,9 @@ function initMap() {
     if (!selectChanged) {
         if (!$("#GeoLat").val() || !$("#GeoLng").val())
         {
-            MyLatLng = new google.maps.LatLng(parseFloat("47.424060"), parseFloat("9.377446"));
+            MyLatLng = new google.maps.LatLng(parseFloat("47.559765"), parseFloat("7.587936"));
+            $("#GeoLat").attr("value", "47.559765");
+            $("#GeoLng").attr("value", "7.587936");
         } else {
             MyLatLng = new google.maps.LatLng(parseFloat($("#GeoLat").val()), parseFloat($("#GeoLng").val()));
         }

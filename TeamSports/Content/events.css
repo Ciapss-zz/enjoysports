@@ -57,3 +57,6 @@ body .event a.btn-join:hover {
 body .event a:hover {
   background-color: #669866;
 }
+body .event--btnColumn {
+  padding-top: 10px;
+}
